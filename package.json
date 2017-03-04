@@ -17,4 +17,9 @@
     "url": "https://github.com/hillmanov/find-rep-api/issues"
   },
   "homepage": "https://github.com/hillmanov/find-rep-api",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express": "^4.15.0",
+    "request": "^2.79.0"
+  }
 }
