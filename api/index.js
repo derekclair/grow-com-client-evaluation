@@ -1,20 +1,13 @@
 const express = require('express');
 const request = require('request');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
 app.use(cors());
 
-app.use(express.static(__dirname + '/../build'));
-
-function sendClientApp(req, res, next) {
-	// res.sendFile(path.resolve(__dirname, '..', 'bulld', 'index.html'));
-	res.sendFile(__dirname + '/../build/index.html');
-	next();
-}
-
-app.get('*', sendClientApp);
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 function handleApiResponse(res, next) {
 	return function (err, response, body) {
@@ -54,6 +47,12 @@ function findSenatorsByState(req, res, next) {
 }
 
 app.get('/senators/:state', findSenatorsByState, jsonResponse);
+
+function sendClientApp(req, res, next) {
+	res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+}
+
+app.get('*', sendClientApp);
 
 const server = app.listen(process.env.PORT || 4000, function () {
 	const host = server.address().address;
