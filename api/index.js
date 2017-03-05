@@ -49,8 +49,8 @@ function findSenatorsByState(req, res, next) {
 
 app.get('/senators/:state', findSenatorsByState, jsonResponse);
 
-app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, '/../public/index.html'));
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, '..', 'public/index.html'));
 });
 
 app.set('port', (process.env.PORT || 3001));
