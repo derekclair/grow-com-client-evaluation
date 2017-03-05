@@ -49,7 +49,7 @@ function findSenatorsByState(req, res, next) {
 
 app.get('/senators/:state', findSenatorsByState, jsonResponse);
 
-app.get('*', files);
+app.use('*', files);
 app.set('port', (process.env.PORT || 3001));
 
 const server = app.listen(app.get('port'), function () {
