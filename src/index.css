@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "US Constitution";
+  src: url(/fonts/us_declaration.ttf); }
+
+html,
+body,
+#root {
+  min-height: 100%; }
+
+.root {
+  margin-top: 5vh;
+  margin-right: auto;
+  margin-left: auto; }
+
+/*******************************************************************************
+																																	MEDIA QUERIES
+*******************************************************************************/
+@media only screen and (min-width: 48em) {
+  .container {
+    width: 49rem; } }
+
+@media only screen and (min-width: 64em) {
+  .root {
+    width: 65rem; } }
+
+@media only screen and (min-width: 75em) {
+  .root {
+    width: 76rem; } }
+
+/*******************************************************************************
+																																			CSS RESETS
+*******************************************************************************/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:focus {
+  outline: none; }
+
+ul,
+menu,
+dir,
+ol {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0; }
+
+ul {
+  list-style-type: none; }
+
+.clearfix:after,
+.form-horizontal .form-group:after {
+  clear: both; }
