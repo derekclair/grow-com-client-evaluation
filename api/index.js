@@ -7,8 +7,7 @@ const app = express();
 
 app.use(cors());
 
-const files = express.static(path.join(__dirname, '../../client/build'));
-app.use(files);
+app.use(express.static(__dirname + '/../build'));
 
 function handleApiResponse(res, next) {
 	return function (err, response, body) {
