@@ -8,13 +8,11 @@ app.use(cors());
 
 app.get('/representatives/:state',
   findRepresentativesByState,
-  jsonResponse,
-);
+  jsonResponse);
 
 app.get('/senators/:state',
   findSenatorsByState,
-  jsonResponse,
-);
+  jsonResponse);
 
 function jsonResponse(req, res) {
 	return res.json(res.locals);
