@@ -6,6 +6,16 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.static(__dirname + '/../build'));
+
+function sendClientApp(req, res, next) {
+	// res.sendFile(path.resolve(__dirname, '..', 'bulld', 'index.html'));
+	res.sendFile(__dirname + '/../build/index.html');
+	next();
+}
+
+app.get('*', sendClientApp);
+
 function handleApiResponse(res, next) {
 	return function (err, response, body) {
 		if (err || body[0] === '<') {
