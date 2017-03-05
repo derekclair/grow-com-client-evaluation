@@ -6,36 +6,6 @@ const app = express();
 
 app.use(cors());
 
-app.get('/representatives/:state',
-  findRepresentativesByState,
-  jsonResponse);
-
-app.get('/senators/:state',
-  findSenatorsByState,
-  jsonResponse);
-
-function jsonResponse(req, res) {
-	return res.json(res.locals);
-}
-
-const url = 'http://whoismyrepresentative.com/';
-
-function findRepresentativesByState(req, res, next) {
-	const api = 'getall_reps_bystate.php';
-
-	request(`${url}${api}?state=${req.params.state}&output=json`,
-		handleApiResponse(res, next),
-	);
-}
-
-function findSenatorsByState(req, res, next) {
-	const api = 'getall_sens_bystate.php';
-
-	request(`${url}${api}?state=${req.params.state}&output=json`,
-		handleApiResponse(res, next),
-	);
-}
-
 function handleApiResponse(res, next) {
 	return function (err, response, body) {
 		if (err || body[0] === '<') {
@@ -52,6 +22,32 @@ function handleApiResponse(res, next) {
 		return next();
 	};
 }
+
+function jsonResponse(req, res) {
+	return res.json(res.locals);
+}
+
+const url = 'http://whoismyrepresentative.com/';
+
+function findRepresentativesByState(req, res, next) {
+	const api = 'getall_reps_bystate.php';
+
+	request(`${url}${api}?state=${req.params.state}&output=json`,
+		handleApiResponse(res, next),
+	);
+}
+
+app.get('/representatives/:state', findRepresentativesByState, jsonResponse);
+
+function findSenatorsByState(req, res, next) {
+	const api = 'getall_sens_bystate.php';
+
+	request(`${url}${api}?state=${req.params.state}&output=json`,
+		handleApiResponse(res, next),
+	);
+}
+
+app.get('/senators/:state', findSenatorsByState, jsonResponse);
 
 const server = app.listen(process.env.PORT || 4000, function () {
 	const host = server.address().address;
