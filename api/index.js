@@ -7,7 +7,8 @@ const app = express();
 
 app.use(cors());
 
-app.use(express.static(__dirname + '/public'));
+const files = express.static(path.join(__dirname, '../../client/build'));
+app.use(files);
 
 function handleApiResponse(res, next) {
 	return function (err, response, body) {
@@ -48,8 +49,10 @@ function findSenatorsByState(req, res, next) {
 
 app.get('/senators/:state', findSenatorsByState, jsonResponse);
 
+app.get('*', files);
+app.set('port', (process.env.PORT || 3001));
 
-const server = app.listen(process.env.PORT || 4000, function () {
+const server = app.listen(app.get('port'), function () {
 	const host = server.address().address;
 	const port = server.address().port;
 
