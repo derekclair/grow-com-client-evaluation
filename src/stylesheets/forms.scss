@@ -1,0 +1,122 @@
+
+@import "./_variables.scss";
+
+
+/*******************************************************************************
+																																						form
+*******************************************************************************/
+form {
+
+	label {
+		span { padding-left: 5px; }
+	} // label
+
+	// section {
+	// 	.row {
+	// 		margin: 1.5em 0 0.5em 0;
+	// 		*[class*="col-"]:first-of-type { padding-left: 0; }
+	// 		*[class*="col-"]:last-of-type { padding-right: 0; }
+	// 		*[class*="col-"] {
+	// 			// .form-control { width: 100%; }
+	// 			// .form-control { width: auto; }
+	// 			input { max-width: 100%; }
+	// 		}
+	// 		> input:first-of-type { margin-left: 0; }
+	// 		> input:nth-last-of-type(1) { margin-left: 1em; }
+	// 		&.submit { margin-top: 0 !important; }
+	// 	}
+	// } // section
+}
+
+/*******************************************************************************
+																																					input
+*******************************************************************************/
+input::-webkit-input-placeholder { color: $color; }
+input:-moz-placeholder { color: $color; } /* Firefox 18- */
+input::-moz-placeholder { color: $color; } /* Firefox 19+ */
+input:-ms-input-placeholder { color: $color; }
+
+
+.form {
+	/*****************************************************************************
+																																		.form-group
+	*****************************************************************************/
+	&-group {
+		// margin: 0 0 0.5em 0;
+		margin: 0;
+
+		&:before,
+		&:after {
+		  content: " ";
+		  display: table;
+		}
+		&:after { clear: both; }
+		&:last-child { margin-bottom: 0.5em; }
+		> label { font-weight: $font-bold; }
+		// button,
+		// input[type="button"] {
+		// 	margin-top: 1.5em; // NOTE: 1em + .form-control { margin-top }
+		// }
+	}
+
+	/*****************************************************************************
+																																	.form-control
+	*****************************************************************************/
+	&-control {
+	  display: block;
+		position: relative;
+  	// width: 100%;
+		width: auto;
+	  @include transition(250ms);
+		background-color: $white;
+	  background-image: none;
+		border: $border-small solid $border-color;
+	  border-radius: $border-radius-large;
+		line-height: $font-size;
+		font-size: $font-size;
+	  color: $color;
+		margin: 0.5em 0;
+		padding: 0.6em 1em;
+		&.expand { width: 100%; }
+		&:focus {
+		  outline: none !important;
+		  border-color: $primary;
+		}
+	}
+}
+
+
+/*******************************************************************************
+																																					select
+*******************************************************************************/
+
+select {
+	// &.form-control {
+	  -webkit-appearance: none;
+	  cursor: pointer;
+
+		background-color: $black;
+		border: $border-medium solid $black;
+		color: $white;
+		font-family: $font-family;
+		font-size: $font-size;
+		padding-right: 3.0em;
+
+		&:focus { border-color: $secondary; }
+	// }
+}
+
+div.select {
+	position: relative;
+	&:after {
+		position: absolute;
+		z-index: 100;
+		// top: 0.8em;
+		top: 0.5em;
+		right: 1.2em;
+		color: $secondary;
+		content: "\f104";
+		font-family: "Ionicons";
+	}
+	select { width: 100%; }
+}

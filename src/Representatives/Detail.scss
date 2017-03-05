@@ -1,0 +1,37 @@
+@import "../stylesheets/_variables.scss";
+@import "../stylesheets/forms.scss";
+
+.detail {
+	min-width: 18em;
+	margin: 0 1em;
+
+	> div { text-align: center; }
+
+	h3 span { margin-right: 0.5em; }
+
+	a i {
+		vertical-align: middle;
+		margin: 0 0.5em;
+	}
+	.district {
+		font-size: 1.5em;
+		font-weight: $font-bold;
+		margin-top: 1em;
+	}
+
+	.address { margin: 1em 0; }
+
+	&.republican {
+		h3 span { color: $secondary; }
+	}
+	&.democrat {
+		h3 span { color: $primary; }
+	}
+}
+
+#senator {
+	.detail {
+		&:first-of-type { margin-left: 2em; }
+		&:last-of-type { margin-right: 2em; }
+	}
+}

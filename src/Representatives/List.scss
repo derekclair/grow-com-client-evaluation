@@ -1,0 +1,32 @@
+@import "../stylesheets/_variables.scss";
+@import "../stylesheets/forms.scss";
+
+main#representatives {
+	li {
+		padding: 1em;
+		min-width: 21em;
+
+		h3 {
+			text-align: left;
+			vertical-align: middle;
+			margin: 0;
+
+			span { margin-right: 0.5em; }
+		} // h3
+
+		&.republican {
+			h3 span { color: $secondary; }
+		} // .republican
+
+		&.democrat {
+			h3 span { color: $primary; }
+		} // .democrat
+
+		&.active {
+			background-color: $light-gray;
+			border-radius: $border-radius-large;
+
+			span.arrow { margin-left: 2em; }
+		} // .active
+	} // li
+} // #representatives

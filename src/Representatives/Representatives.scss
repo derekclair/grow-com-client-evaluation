@@ -1,0 +1,37 @@
+@import "../stylesheets/_variables.scss";
+@import "../stylesheets/forms.scss";
+
+main {
+	display: flex;
+	flex-flow: column nowrap;
+
+	> div:first-of-type { display: flex; }
+
+	// > div:first-of-type { @include dev-border; } // HACK
+
+	&#senators,
+	&#representatives {
+		> h3 {
+			border-bottom: $border;
+			margin: 0.5em 0;
+			padding-bottom: 0.5em;
+		}
+	} // #senators, #representatives
+
+	&#senators {} // #senators
+
+	&#representatives { margin: 0.5em 0; } // #representatives
+
+	.footer {
+		border-top: $border;
+		text-align: center;
+		margin-top: 1.5em;
+		padding: 1em 0;
+		span {
+			display: inline-block;
+
+			&.blue { color: $primary; }
+			&.red { color: $secondary; }
+		}
+	} // .footer
+}

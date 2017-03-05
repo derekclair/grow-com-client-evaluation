@@ -1,0 +1,99 @@
+
+@import "../stylesheets/_variables.scss";
+@import "../stylesheets/forms.scss";
+
+menu {
+	width: 100%;
+	// color: $primary;
+	// border-bottom: $border;
+	padding-bottom: 1.5em;
+
+
+	> * {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		align-content: space-around;
+		justify-content: center;
+
+		// @include dev-border; // HACK
+	}
+
+	form {
+		.form-group { text-align: center; }
+		.select {
+			margin-top: 1.67em;
+			min-width: 18em;
+		}
+	}
+
+	.congressional-branch {
+
+		.logo-container {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			align-content: space-around;
+			justify-content: center;
+			flex: 1;
+
+			text-align: center;
+			vertical-align: middle;
+			white-space: nowrap;
+			color: $base;
+			@include transition(1050ms);
+
+			img { margin: 0 $font-size; }
+
+			&#house { text-align: left; }
+
+			// @include dev-border; // HACK
+		} // .logo-container
+
+		.divider {
+			height: 150px;
+			width: 1px;
+			background-color: $border-color;
+			font-family: $font-constitution;
+		} // .divider
+
+		span.or { margin: 0 0.5em; }
+
+		/*****************************
+			Active View
+		******************************/
+		&.view-senators > #senate,
+		&.view-representatives > #house, {
+			flex: 3;
+			font-size: 2.5em;
+			img {
+				width: 150px;
+				height: 150px;
+				@include transition(500ms);
+			}
+		}
+
+		/*****************************
+			Inactive View
+		******************************/
+		&.view-senators > #house,
+		&.view-representatives > #senate, {
+			font-size: $font-size;
+			img {
+				@include transition(500ms);
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+}
+
+img {
+	&.senate { background-image: url('/images/senate.png'); }
+	&.house { background-image: url('/images/house_of_reps.png'); }
+
+	// &.senate,
+	// &.house {
+	//
+	// }
+}

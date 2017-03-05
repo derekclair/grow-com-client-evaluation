@@ -1,0 +1,105 @@
+{
+  env: {
+		node: true,
+    es6: true,
+    browser: true,
+  },
+  parser: 'babel-eslint',
+  sourceType: 'module',
+  extends: [
+    'airbnb-base',
+		'react-app',
+  ],
+  plugins: [
+		'flowtype',
+    'import',
+    'jsx-a11y',
+    'react',
+  ],
+
+  globals: {
+		google: false,
+  },
+
+  rules: {
+		camelcase: 'off',
+    indent: ['warn', 'tab', {
+      VariableDeclarator: {
+        var: 2,
+        let: 2,
+        const: 3,
+      }
+    }],
+    # indent: [2, 2],
+    arrow-body-style: 0,
+		arrow-parens: [2, 'always', { requireForBlockBody: false }],
+    brace-style: ['error', '1tbs', { allowSingleLine: true }],
+    # brace-style: ['error', 'allman', { allowSingleLine: true }],
+    # brace-style: ['error', 'stroustrup', { allowSingleLine: true }],
+		class-methods-use-this: 0,
+    eol-last: 2,
+    func-names: 0,
+    # key-spacing: ['error', { align: 'colon' }],
+    max-len: ['warn', 80, 2, {
+      ignoreUrls: true,
+      ignorePattern: "['\"]",
+      ignoreComments: true,
+      ignoreTrailingComments: true
+    }],
+    no-mixed-spaces-and-tabs: ['error', 'smart-tabs'],
+    no-multi-spaces: ['error', {
+      exceptions: {
+        ImportDeclaration: true,
+        VariableDeclarator: true
+      }
+    }],
+		no-multiple-empty-lines: 'off',
+		no-tabs: 'off',
+    no-trailing-spaces: ['error', { skipBlankLines: true }],
+		no-underscore-dangle: 'off',
+    no-unused-vars: ['warn', {
+      vars: 'local',
+      args: 'after-used'
+    }],
+		object-shorthand: ['error', 'always', { avoidQuotes: true }],
+    prefer-arrow-callback: 0,
+    spaced-comment: 0,
+
+
+    ###################################################################### BABEL
+    # babel/object-shorthand: 1,
+
+
+		##################################################################### IMPORT
+		import/extensions: 'off',
+    import/no-absolute-path: 'off',
+		import/no-extraneous-dependencies: 'off',
+		import/no-unresolved: ['error', { ignore: ['^meteor/', '^/'] }],
+
+
+		################################################################### JSX-A11Y
+    jsx-a11y/no-static-element-interactions: 'off',
+		jsx-a11y/label-has-for: 'off',
+
+
+    ###################################################################### REACT
+    # react/jsx-closing-bracket-location: [1, 'tag-aligned'],
+    react/jsx-closing-bracket-location: [1, 'line-aligned'],
+    # react/jsx-closing-bracket-location: [1, 'props-aligned'],
+    # react/jsx-closing-bracket-location: [1, 'after-props'],
+    react/jsx-equals-spacing: 1,
+    # react/jsx-indent: ['off', 'tab'],
+    react/jsx-indent: [2, 'tab'],
+    react/jsx-indent-props: ['off', 'tab'],
+    # react/jsx-indent-props: [2, 'tab'],
+    # react/jsx-indent-props: [2, 2],
+    react/jsx-no-bind: ['off', { allowBind: true }],
+    react/jsx-uses-react: 1,
+		react/no-array-index-key: 'warn',
+		react/no-string-refs: 'warn',
+		react/no-unused-prop-types: 'off',
+    # react/prefer-stateless-function: 'off',
+    react/prop-types: [0],
+		react/require-default-props: 'warn'
+  }
+}
