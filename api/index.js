@@ -32,9 +32,7 @@ const url = 'http://whoismyrepresentative.com/';
 function findRepresentativesByState(req, res, next) {
 	const api = 'getall_reps_bystate.php';
 
-	request(`${url}${api}?state=${req.params.state}&output=json`,
-		handleApiResponse(res, next),
-	);
+	request(`${url}${api}?state=${req.params.state}&output=json`, handleApiResponse(res, next));
 }
 
 app.get('/representatives/:state', findRepresentativesByState, jsonResponse);
@@ -42,9 +40,7 @@ app.get('/representatives/:state', findRepresentativesByState, jsonResponse);
 function findSenatorsByState(req, res, next) {
 	const api = 'getall_sens_bystate.php';
 
-	request(`${url}${api}?state=${req.params.state}&output=json`,
-		handleApiResponse(res, next),
-	);
+	request(`${url}${api}?state=${req.params.state}&output=json`,	handleApiResponse(res, next));
 }
 
 app.get('/senators/:state', findSenatorsByState, jsonResponse);
