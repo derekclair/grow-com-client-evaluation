@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
+app.use(express.static(__dirname + '/public'));
 
 function handleApiResponse(res, next) {
 	return function (err, response, body) {
